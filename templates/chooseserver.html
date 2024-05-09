@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST">
+    <label for="guild">
+        <select name="guild">
+            {%for guild in guild_list%}
+                <option value="{{ guild.id }}">{{ guild }}</option>
+            {%endfor%}
+        </select>
+    </label>
+    <input type="submit">
+</form>
+</body>
+</html>

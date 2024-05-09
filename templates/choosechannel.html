@@ -2,17 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>EnTitled</title>
+    <title>Title</title>
 </head>
 <body>
-<p>HI EVERYONE</p>
 <form method="POST">
-    <input name="title">
-    <input name="message">
     <label for="channels">
         <select name="channels">
             {%for channel in channel_list%}
-                <option value="{{ channel }}">{{ channel.name }}</option>
+                <option value="{{ channel.id }}">{{ channel }}</option>
             {%endfor%}
         </select>
     </label>
