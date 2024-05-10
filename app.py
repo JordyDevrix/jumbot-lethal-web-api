@@ -71,6 +71,21 @@ async def choose_guild():
         return "Unauthorized", 401
 
 
+@app.route("/send/<channel_id>", methods=["POST"])
+async def send_message(channel_id):
+    try:
+        await auth_interceptor()
+        res: dict = await request.json
+        print(res)
+        message = res.get("message")
+        channel = client.get_channel(int(channel_id))
+        await channel.send(message)
+        return "OK", 200
+    except Exception as e:
+        print(f"Except {e}")
+        return "Unauthorized", 401
+
+
 @app.route("/guild/textchannels/<guild_id>", methods=["GET"])
 async def get_channel_choice(guild_id):
     try:
